@@ -1,0 +1,265 @@
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: Nice and Simple Plugin to add additional functionality\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-01-26 17:13+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: \n"
+"Language: \n"
+"Plural-Forms: nplurals=INTEGER; plural=EXPRESSION;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.9; php-8.3.29\n"
+"X-Domain: nice-simple-vp"
+
+#: src/CustomPostType/Portfolio.php:236
+msgid "[Optional]"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:27 src/CustomPostType/Portfolio.php:151
+msgid "Add New"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:203
+msgid "Add New Collection"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:26
+msgid "Add New FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:150
+msgid "Add New Portfolio"
+msgstr ""
+
+#: src/Includes/Utils.php:82
+msgid "All"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:198
+msgid "All Collections"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:25
+msgid "All FAQ's"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:149
+msgid "All Portfolios"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:73 src/CustomPostType/Portfolio.php:196
+msgid "Collection"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:82 src/CustomPostType/Portfolio.php:195
+#: src/CustomPostType/Portfolio.php:205
+msgid "Collections"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:201
+msgid "Edit Collection"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:29
+msgid "Edit FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:153
+msgid "Edit Portfolio"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:18 src/CustomPostType/Faq.php:19
+#: src/CustomPostType/Faq.php:20 src/CustomPostType/Faq.php:21
+#: src/Shortcode/ShowFaq.php:41
+msgid "FAQ"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:22
+msgid "FAQ Archives"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:23
+msgid "FAQ Attributes"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:72
+msgid "FAQ Collections"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:48 src/CustomPostType/Faq.php:49
+msgid "FAQ's"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:160
+msgid "Featured Image"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:44 src/CustomPostType/Portfolio.php:168
+msgid "Filter items list"
+msgstr ""
+
+#. URI of the plugin
+msgid "https://nice-simple.com"
+msgstr ""
+
+#. Author URI of the plugin
+msgid "https://vpramatarov.eu"
+msgstr ""
+
+#: src/Includes/Activator.php:19
+msgid "Incompatible PHP version"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:164
+msgid "Insert into item"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:42 src/CustomPostType/Portfolio.php:166
+msgid "Items list"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:43 src/CustomPostType/Portfolio.php:167
+msgid "Items list navigation"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:225 src/CustomPostType/Portfolio.php:236
+msgid "Make a Project Featured"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:81 src/CustomPostType/Portfolio.php:204
+msgid "New Collection Name"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:28
+msgid "New FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:152
+msgid "New Portfolio"
+msgstr ""
+
+#. Name of the plugin
+#. Description of the plugin
+msgid "Nice and Simple Plugin to add additional functionality"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:34 src/CustomPostType/Portfolio.php:158
+msgid "Not found"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:35 src/CustomPostType/Portfolio.php:159
+msgid "Not found in Trash"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:76 src/CustomPostType/Portfolio.php:199
+msgid "Parent Collection"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:77 src/CustomPostType/Portfolio.php:200
+msgid "Parent Collection:"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:24
+msgid "Parent FAQ:"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:148
+msgid "Parent Portfolio:"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:143 src/CustomPostType/Portfolio.php:145
+msgid "Portfolio"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:146
+msgid "Portfolio Archives"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:147
+msgid "Portfolio Attributes"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:142 src/CustomPostType/Portfolio.php:144
+msgid "Portfolios"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:172
+msgid "portfolios"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:38 src/CustomPostType/Portfolio.php:162
+msgid "Remove featured image"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:74 src/CustomPostType/Portfolio.php:197
+msgid "Search Collections"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:33
+msgid "Search FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:157
+msgid "Search Portfolio"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:161
+msgid "Set featured image"
+msgstr ""
+
+#: src/Includes/Activator.php:18
+msgid ""
+"This plugin requires PHP version 8.3 or higher. Please update the PHP "
+"version on your server."
+msgstr ""
+
+#: src/CustomPostType/Faq.php:79 src/CustomPostType/Portfolio.php:202
+msgid "Update Collection"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:30
+msgid "Update FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:154
+msgid "Update Portfolio"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:41 src/CustomPostType/Portfolio.php:165
+msgid "Uploaded to this item"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:163
+msgid "Use as featured image"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:173
+msgid "User portfolios"
+msgstr ""
+
+#. Author of the plugin
+msgid "Velizar Pramatarov <velizarpramatrov@yahoo.com>"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:31 src/CustomPostType/Faq.php:32
+msgid "View FAQ"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:155
+msgid "View Portfolio"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:156
+msgid "View Portfolios"
+msgstr ""
+
+#: src/Shortcode/ShowPortfolio.php:249
+msgid ""
+"We create spaces that inspire. Individual design and uncompromising quality "
+"for your home or office."
+msgstr ""

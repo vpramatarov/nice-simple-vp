@@ -1,0 +1,24 @@
+{
+    "name": "vpramatarov/nice-simple-vp",
+    "description": "Wordpress Plugin to add extended functionality",
+    "type": "wordpress-plugin",
+    "license": "GPL-2.0+",
+    "autoload": {
+        "psr-4": {
+            "NiceSimpleVp\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Velizar Pramatarov",
+            "email": "velizarpramatarov@yahoo.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "config": {
+        "platform": {
+            "php": "8.3"
+        }
+    },
+    "require": {}
+}

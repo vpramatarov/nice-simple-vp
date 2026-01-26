@@ -1,0 +1,35 @@
+name: Build and Release Plugin
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: mbstring, zip
+
+      - name: Install Composer dependencies
+        run: composer install --no-dev --optimize-autoloader
+
+      - name: Create Deployment Package
+        run: |
+          mkdir -p nice-simple-vp
+          rsync -rr . nice-simple-vp --exclude .git --exclude .github --exclude build.sh --exclude composer.json --exclude composer.lock --exclude .gitignore
+          zip -r nice-simple-vp.zip nice-simple-vp
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: nice-simple-vp.zip
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,599 @@
+:root {
+    --color-text-light: #ffffff;
+    --color-text-muted: #cccccc;
+    --color-accent: #c5a47e;
+    --project-card-overlay-gradient: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4));
+    --collection-transition-speed: 0.4s;
+}
+
+/* --- THE GRID --- */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: 1fr; /* Mobile default */
+    gap: 2rem;
+    width: 100%;
+}
+
+.portfolio-grid::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/* --- PROJECT CARD STYLING --- */
+.project-card {
+    position: relative;
+    height: 400px;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+.card-bg {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform var(--collection-transition-speed) ease;
+}
+
+/* DEFAULT STATE (Mobile/Tablet): Overlay is always visible */
+.card-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 20%;
+    background: var(--project-card-overlay-gradient);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 2rem;
+
+    /* Visible by default on small screens */
+    opacity: 1;
+    transition: opacity var(--collection-transition-speed) ease;
+}
+
+.card-info {
+    transform: translateY(0);
+    transition: transform var(--collection-transition-speed) ease;
+}
+
+.portfolio-grid .card-info .card-title a {
+    text-decoration: none !important;
+}
+
+.card-info .card-title a:hover {
+    color: var(--color-accent);
+    text-decoration: underline !important;
+}
+
+.card-info .category-tag a:hover {
+    color: var(--color-text-light);
+}
+
+.category-tag {
+    color: var(--color-accent);
+    font-size: 0.75em;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.category-tag a {
+    color: var(--color-accent);
+    text-decoration: none !important;
+}
+
+.card-title {
+    font-size: 1.5em;
+    margin-bottom: 0.5rem;
+    line-height: 1.2;
+}
+
+.card-title a {
+    color: var(--color-text-light);
+}
+
+.card-desc {
+    font-size: 0.9em;
+    color: var(--color-text-muted);
+    line-height: 1.5;
+}
+
+/* --- FILTERS & FILTERING LOGIC CSS --- */
+.filter-collections {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 1em;
+}
+
+.filter-collections .btn {
+    background: transparent;
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+}
+
+.filter-collections .btn:hover,
+.filter-collections .btn.active {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+.project-card.hide {
+    display: none;
+}
+
+/* MAIN SLIDER CONTAINER */
+.slider {
+    width: 100%;
+    height: 600px;
+    position: relative;
+    overflow: hidden;
+    background: #000;
+}
+
+/* INPUTS (Logic) - Hidden */
+input[name="slide"] {
+    display: none;
+}
+
+/* SLIDES TRACK */
+/* Width = 100% * Number of slides (4 slides = 400%) */
+.slider .slides-track {
+    display: flex;
+    /* width is generated in the shortcode */
+    height: 100%;
+    transition: transform 0.8s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+/* INDIVIDUAL SLIDE */
+.slider .slide {
+    /* width is generated in the shortcode */
+    height: 100%;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+}
+
+/* OVERLAY & TEXT */
+.slider .slide-text-overlay {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 50px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+    color: white;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.5s ease 0.3s; /* Delay for nice effect */
+}
+
+.slider .slide-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.slider .slide h2 {
+    font-size: 3em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.slider .slide-content a {
+    color: var(--color-text-light);
+}
+
+.slider .slide p {
+    font-size: 1.1em;
+    color: #ddd;
+}
+
+/* NAVIGATION DOTS (Bottom) */
+.slider .dots-nav {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 10px;
+    z-index: 50;
+}
+
+.slider .dot {
+    width: 12px; height: 12px;
+    background: rgba(255,255,255,0.3);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.slider .dot:hover { background: rgba(255,255,255,0.6); }
+
+/* ARROW NAVIGATION (The Fix) */
+.slider .arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 50px;
+    height: 50px;
+    background: rgba(0,0,0,0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 100;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.3s;
+}
+
+.slider .arrow:hover { background: rgba(255,255,255,0.3); }
+.slider .arrow:hover::after { border-color: rgba(0,0,0,0.3); }
+.slider .arrow-prev { left: 30px; }
+.slider .arrow-next { right: 30px; }
+
+/* Chevron Icons CSS */
+.slider .arrow::after {
+    content: '';
+    width: 10px; height: 10px;
+    border-right: 3px solid white;
+    border-top: 3px solid white;
+    display: block;
+}
+.slider .arrow-prev::after { transform: rotate(-135deg); margin-left: 4px; }
+.slider .arrow-next::after { transform: rotate(45deg); margin-right: 4px; }
+
+/* ==================================== */
+/* ============ THE LOGIC ============= */
+/* ==================================== */
+
+/* Move the Track */
+/* transforms for other slides are generated in the shortcode */
+#r0:checked ~ .slides-track { transform: translateX(0%); }
+
+/* Animate Text (Only active slide gets opacity 1) */
+/* transforms for other slides are generated in the shortcode */
+#r0:checked ~ .slides-track .slide:nth-child(1) .slide-text-overlay {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Highlight Active Dot */
+/* transforms for other slides are generated in the shortcode */
+#r0:checked ~ .dots-nav label[for="r0"]{
+    background: #fff;
+    transform: scale(1.2);
+}
+
+/* FANCY SLIDER CONTAINER */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+}
+
+.hero-slider input[type="radio"] {
+    display: none;
+}
+
+.hero-slider .hero-content {
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 50;
+    text-align: center;
+    width: 80%;
+    max-width: 800px;
+    pointer-events: none;
+}
+
+.hero-slider .hero-content h1 {
+    font-size: 4em; font-weight: 700; margin-bottom: 20px;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.5);
+    color: var(--color-text-light);
+}
+
+.hero-slider .hero-content .lead {
+    font-size: 1.5em;
+    color: rgba(255,255,255,0.9);
+}
+
+.hero-slider .slides-track {
+    display: flex;
+    height: 70%;
+    width: 400%;
+    transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    will-change: transform;
+}
+
+.hero-slider .slide {
+    width: 60vw;
+    height: 100%;
+    flex-shrink: 0;
+    margin: 0 2.5vw;
+    position: relative;
+    transition: all 0.8s ease;
+    transform: scale(0.85);
+    z-index: 1;
+}
+
+.hero-slider .img-container {
+    width: 100%; height: 100%; position: relative;
+    border-radius: 8px; overflow: hidden;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+
+.hero-slider .slide img {
+    width: 100%; height: 100%; object-fit: cover;
+}
+
+.hero-slider .slide-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    transition: opacity 0.8s ease;
+    opacity: 1;
+}
+
+.hero-slider .global-hero-overlay {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 40;
+    pointer-events: none;
+}
+
+.hero-slider .slider-nav {
+    position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+    z-index: 60; display: flex;
+}
+
+.hero-slider .slider-nav label {
+    width: 10px; height: 10px; background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%; margin: 0 10px; cursor: pointer; transition: all 0.3s ease;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+
+/* FAQ Accordion */
+.accordion-wrapper {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.accordion-wrapper > .row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+
+.accordion-wrapper > .row::after {
+    content: '';
+    clear: both;
+    display: block;
+}
+
+/* --- The Accordion Item --- */
+.accordion-item {
+    background-color: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+input.accordion-input:checked + .accordion-item {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-wrapper input.accordion-input {
+    display: none;
+}
+
+/* --- The Label (Header) --- */
+.accordion-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    cursor: pointer;
+    font-weight: 600;
+    color: #333;
+    background-color: #fafafa;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    user-select: none; /* Prevents text highlighting on double click */
+}
+
+.accordion-label:hover {
+    color: #007bff;
+}
+
+/* --- Icon Animation --- */
+.accordion-label::after {
+    content: '+';
+    font-size: 24px;
+    font-weight: 300;
+    transition: transform 0.3s ease;
+}
+
+/* Rotate icon when checkbox is checked */
+input.accordion-input:checked + .accordion-item .accordion-label::after {
+    transform: rotate(45deg);
+}
+
+/* --- Content Animation --- */
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease-out;
+    background-color: #fff;
+}
+
+/* When checkbox is checked, expand grid to 1fr */
+input.accordion-input:checked + .accordion-item .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+/* Content Styling */
+.accordion-inner {
+    padding: 20px;
+    margin: 0;
+    color: #555;
+    line-height: 1.6;
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+    overflow: hidden;
+}
+
+/* Fade in text slightly after the box starts opening */
+input.accordion-input:checked + .accordion-item .accordion-content .accordion-inner {
+    opacity: 1;
+    transform: translateY(0);
+    transition-delay: 0.1s; /* Small delay for better feel */
+}
+
+
+/* Responsive table */
+.responsive-table {}
+
+.responsive-table .thead {
+    display: none;
+}
+
+.responsive-table .thead .tr {
+    border-bottom: 1px solid #e9e9e9;
+}
+
+.responsive-table .th {
+    font-weight: bold;
+}
+
+.responsive-table .tbody .tr:last-child {
+    border-bottom: none;
+}
+
+.responsive-table .td {
+
+}
+
+/* --- Media Queries --- */
+
+/* Only apply the hover-reveal effect on screens capable of hover (Desktops) [DESKTOP HOVER EFFECTS ONLY] */
+@media (min-width: 768px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .card-overlay {
+        opacity: 0; /* Hidden by default on desktop */
+        height: 100%;
+        background: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0));
+    }
+
+    .card-info {
+        transform: translateY(20px); /* Pushed down by default on desktop */
+    }
+
+    .project-card:hover .card-bg {
+        transform: scale(1.1);
+    }
+
+    .project-card:hover .card-overlay {
+        opacity: 1;
+    }
+
+    .project-card:hover .card-info {
+        transform: translateY(0);
+    }
+}
+
+@media (min-width: 1200px) {
+    .portfolio-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .responsive-table .thead {
+        display: block;
+    }
+
+    .responsive-table .tr {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: 0.5fr 1.5fr;
+        justify-items: start;
+        align-items: center;
+        padding: 6px 12px;
+    }
+
+    .responsive-table .tbody {
+        margin-bottom: 1em;
+    }
+}
+
+@media (max-width: 1200px) {
+    .responsive-table .tbody .tr {
+        border-bottom: 1px solid #e9e9e9;
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+        padding-right: 10px;
+    }
+
+    .responsive-table .tbody .tr .td {
+        border: none;
+        border-bottom: 1px dotted;
+        position: relative;
+        padding-left: 42%;
+        min-height: 44px;
+    }
+
+    .responsive-table .tbody .tr .td:last-child {
+        border-bottom: none;
+    }
+
+    .responsive-table .tbody .tr .td:before {
+        content: attr(data-th);
+        position: absolute;
+        left: 12px;
+        top: 12px;
+        font-weight: 600;
+        width: 38%;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-slider .hero-content h1 { font-size: 2.5em; }
+    .hero-slider .slide { width: 85vw; margin: 0 1vw; }
+    /* Center offset: (100 - 85)/2 = 7.5vw. Block width: 87vw */
+    .hero-slider #slide0:checked ~ .slides-track { transform: translateX(7.5vw); }
+    .hero-slider #slide1:checked ~ .slides-track { transform: translateX(-79.5vw); } /* 7.5 - 87 */
+    .hero-slider #slide2:checked ~ .slides-track { transform: translateX(-166.5vw); } /* 7.5 - 174 */
+    .hero-slider #slide3:checked ~ .slides-track { transform: translateX(-253.5vw); } /* 7.5 - 261 */
+}
