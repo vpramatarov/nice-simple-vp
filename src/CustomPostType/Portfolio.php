@@ -6,6 +6,8 @@ namespace NiceSimpleVp\CustomPostType;
 
 final class Portfolio implements CustomPostType, Metaboxes
 {
+    private const string NAME = 'portfolio';
+
     private array $metaboxes = [];
 
     public function register(): void
@@ -48,7 +50,7 @@ final class Portfolio implements CustomPostType, Metaboxes
             return;
         }
 
-        if ( 'portfolio' !== $_POST['post_type'] ) {
+        if ( self::NAME !== $_POST['post_type'] ) {
             return;
         }
 
@@ -186,7 +188,7 @@ final class Portfolio implements CustomPostType, Metaboxes
             'exclude_from_search'   => false,
             'publicly_queryable'    => true
         ];
-        register_post_type( 'portfolio', $args );
+        register_post_type( self::NAME, $args );
     }
 
     private function registerTaxonomy(): void
@@ -206,7 +208,7 @@ final class Portfolio implements CustomPostType, Metaboxes
         ];
 
         // Now register the taxonomy
-        register_taxonomy('collections', ['portfolio'], [
+        register_taxonomy('collections', [self::NAME], [
             'hierarchical' => true,
             'labels' => $tax_labels,
             'show_ui' => true,
@@ -224,7 +226,7 @@ final class Portfolio implements CustomPostType, Metaboxes
                 'meta_key' => '_featured_project',
                 'title' => __( 'Make a Project Featured', 'nice-simple-vp' ),
                 'callback_fn' => [$this ,'make_project_featured'],
-                'screen' => 'portfolio',
+                'screen' => self::NAME,
                 'context' => 'normal',
                 'priority' => 'default',
                 'callback_args' => null,

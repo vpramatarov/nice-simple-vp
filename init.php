@@ -11,7 +11,7 @@ declare(strict_types=1);
  * @package           NiceSimpleVp
  *
  * @wordpress-plugin
- * Plugin Name:       Nice and Simple Plugin to add additional functionality
+ * Plugin Name:       Nice and Simple
  * Plugin URI:        https://nice-simple.com
  * Description:       Nice and Simple Plugin to add additional functionality
  * Version:           1.0.0

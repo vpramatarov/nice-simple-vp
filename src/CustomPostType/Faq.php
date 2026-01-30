@@ -6,6 +6,8 @@ namespace NiceSimpleVp\CustomPostType;
 
 final class Faq implements CustomPostType
 {
+    private const string NAME = 'faq';
+
     public function register(): void
     {
         $this->registerPostType();
@@ -63,7 +65,7 @@ final class Faq implements CustomPostType
             'publicly_queryable'    => true
         ];
 
-        register_post_type( 'faq', $args );
+        register_post_type( self::NAME, $args );
     }
 
     private function registerTaxonomy(): void
@@ -83,7 +85,7 @@ final class Faq implements CustomPostType
         ];
 
         // Now register the taxonomy
-        register_taxonomy('faq-collections', ['faq'], [
+        register_taxonomy('faq-collections', [self::NAME], [
             'hierarchical' => true,
             'labels' => $tax_labels,
             'show_ui' => true,
