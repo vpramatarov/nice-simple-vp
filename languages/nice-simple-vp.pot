@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nice and Simple Plugin to add additional functionality\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 20:03+0000\n"
+"POT-Creation-Date: 2026-01-30 21:21+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,15 +16,15 @@ msgstr ""
 "X-Loco-Version: 2.8.0; wp-6.9; php-8.3.29\n"
 "X-Domain: nice-simple-vp"
 
-#: src/CustomPostType/Portfolio.php:238
+#: src/CustomPostType/Portfolio.php:280
 msgid "[Optional]"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:29 src/CustomPostType/Portfolio.php:153
+#: src/CustomPostType/Faq.php:29 src/CustomPostType/Portfolio.php:195
 msgid "Add New"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:82 src/CustomPostType/Portfolio.php:205
+#: src/CustomPostType/Faq.php:82 src/CustomPostType/Portfolio.php:247
 msgid "Add New Collection"
 msgstr ""
 
@@ -32,7 +32,7 @@ msgstr ""
 msgid "Add New FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:152
+#: src/CustomPostType/Portfolio.php:194
 msgid "Add New Portfolio"
 msgstr ""
 
@@ -40,7 +40,7 @@ msgstr ""
 msgid "All"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:77 src/CustomPostType/Portfolio.php:200
+#: src/CustomPostType/Faq.php:77 src/CustomPostType/Portfolio.php:242
 msgid "All Collections"
 msgstr ""
 
@@ -48,20 +48,20 @@ msgstr ""
 msgid "All FAQ's"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:151
+#: src/CustomPostType/Portfolio.php:193
 msgid "All Portfolios"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:198
+#: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:240
 msgid "Collection"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:84 src/CustomPostType/Portfolio.php:197
-#: src/CustomPostType/Portfolio.php:207
+#: src/CustomPostType/Faq.php:84 src/CustomPostType/Portfolio.php:239
+#: src/CustomPostType/Portfolio.php:249
 msgid "Collections"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:203
+#: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:245
 msgid "Edit Collection"
 msgstr ""
 
@@ -69,7 +69,7 @@ msgstr ""
 msgid "Edit FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:155
+#: src/CustomPostType/Portfolio.php:197
 msgid "Edit Portfolio"
 msgstr ""
 
@@ -95,11 +95,11 @@ msgstr ""
 msgid "FAQ's"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:38 src/CustomPostType/Portfolio.php:162
+#: src/CustomPostType/Faq.php:38 src/CustomPostType/Portfolio.php:204
 msgid "Featured Image"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:46 src/CustomPostType/Portfolio.php:170
+#: src/CustomPostType/Faq.php:46 src/CustomPostType/Portfolio.php:212
 msgid "Filter items list"
 msgstr ""
 
@@ -115,23 +115,27 @@ msgstr ""
 msgid "Incompatible PHP version"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:42 src/CustomPostType/Portfolio.php:166
+#: src/CustomPostType/Faq.php:42 src/CustomPostType/Portfolio.php:208
 msgid "Insert into item"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:44 src/CustomPostType/Portfolio.php:168
+#: src/CustomPostType/Portfolio.php:154
+msgid "Is Featured"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:44 src/CustomPostType/Portfolio.php:210
 msgid "Items list"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:45 src/CustomPostType/Portfolio.php:169
+#: src/CustomPostType/Faq.php:45 src/CustomPostType/Portfolio.php:211
 msgid "Items list navigation"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:227 src/CustomPostType/Portfolio.php:238
+#: src/CustomPostType/Portfolio.php:269 src/CustomPostType/Portfolio.php:280
 msgid "Make a Project Featured"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:83 src/CustomPostType/Portfolio.php:206
+#: src/CustomPostType/Faq.php:83 src/CustomPostType/Portfolio.php:248
 msgid "New Collection Name"
 msgstr ""
 
@@ -139,7 +143,7 @@ msgstr ""
 msgid "New FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:154
+#: src/CustomPostType/Portfolio.php:196
 msgid "New Portfolio"
 msgstr ""
 
@@ -151,19 +155,19 @@ msgstr ""
 msgid "Nice and Simple Plugin to add additional functionality"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:160
+#: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:202
 msgid "Not found"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:161
+#: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:203
 msgid "Not found in Trash"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:201
+#: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:243
 msgid "Parent Collection"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:79 src/CustomPostType/Portfolio.php:202
+#: src/CustomPostType/Faq.php:79 src/CustomPostType/Portfolio.php:244
 msgid "Parent Collection:"
 msgstr ""
 
@@ -171,35 +175,43 @@ msgstr ""
 msgid "Parent FAQ:"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:150
+#: src/CustomPostType/Portfolio.php:192
 msgid "Parent Portfolio:"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:145 src/CustomPostType/Portfolio.php:147
+#: src/CustomPostType/Portfolio.php:152
+msgid "Photo"
+msgstr ""
+
+#: src/CustomPostType/Portfolio.php:187 src/CustomPostType/Portfolio.php:189
 msgid "Portfolio"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:148
+#: src/CustomPostType/Portfolio.php:190
 msgid "Portfolio Archives"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:149
+#: src/CustomPostType/Portfolio.php:191
 msgid "Portfolio Attributes"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:144 src/CustomPostType/Portfolio.php:146
+#: src/CustomPostType/Portfolio.php:186 src/CustomPostType/Portfolio.php:188
 msgid "Portfolios"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:174
+#: src/CustomPostType/Portfolio.php:216
 msgid "portfolios"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:164
+#: src/CustomPostType/Portfolio.php:153
+msgid "Project Name"
+msgstr ""
+
+#: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:206
 msgid "Remove featured image"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:76 src/CustomPostType/Portfolio.php:199
+#: src/CustomPostType/Faq.php:76 src/CustomPostType/Portfolio.php:241
 msgid "Search Collections"
 msgstr ""
 
@@ -207,11 +219,11 @@ msgstr ""
 msgid "Search FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:159
+#: src/CustomPostType/Portfolio.php:201
 msgid "Search Portfolio"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:163
+#: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:205
 msgid "Set featured image"
 msgstr ""
 
@@ -221,7 +233,7 @@ msgid ""
 "version on your server."
 msgstr ""
 
-#: src/CustomPostType/Faq.php:81 src/CustomPostType/Portfolio.php:204
+#: src/CustomPostType/Faq.php:81 src/CustomPostType/Portfolio.php:246
 msgid "Update Collection"
 msgstr ""
 
@@ -229,19 +241,19 @@ msgstr ""
 msgid "Update FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:156
+#: src/CustomPostType/Portfolio.php:198
 msgid "Update Portfolio"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:43 src/CustomPostType/Portfolio.php:167
+#: src/CustomPostType/Faq.php:43 src/CustomPostType/Portfolio.php:209
 msgid "Uploaded to this item"
 msgstr ""
 
-#: src/CustomPostType/Faq.php:41 src/CustomPostType/Portfolio.php:165
+#: src/CustomPostType/Faq.php:41 src/CustomPostType/Portfolio.php:207
 msgid "Use as featured image"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:175
+#: src/CustomPostType/Portfolio.php:217
 msgid "User portfolios"
 msgstr ""
 
@@ -253,10 +265,10 @@ msgstr ""
 msgid "View FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:157
+#: src/CustomPostType/Portfolio.php:199
 msgid "View Portfolio"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:158
+#: src/CustomPostType/Portfolio.php:200
 msgid "View Portfolios"
 msgstr ""

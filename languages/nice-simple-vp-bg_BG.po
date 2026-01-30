@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Nice and Simple Plugin to add additional functionality\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-23 13:12+0000\n"
-"PO-Revision-Date: 2026-01-30 20:11+0000\n"
+"PO-Revision-Date: 2026-01-30 21:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: Български\n"
 "Language: bg_BG\n"
@@ -15,15 +15,15 @@ msgstr ""
 "X-Loco-Version: 2.8.1; wp-6.9; php-8.3.29\n"
 "X-Domain: nice-simple-vp"
 
-#: src/CustomPostType/Portfolio.php:238
+#: src/CustomPostType/Portfolio.php:280
 msgid "[Optional]"
 msgstr "[По избор]"
 
-#: src/CustomPostType/Faq.php:29 src/CustomPostType/Portfolio.php:153
+#: src/CustomPostType/Faq.php:29 src/CustomPostType/Portfolio.php:195
 msgid "Add New"
 msgstr "Добави нов"
 
-#: src/CustomPostType/Faq.php:82 src/CustomPostType/Portfolio.php:205
+#: src/CustomPostType/Faq.php:82 src/CustomPostType/Portfolio.php:247
 msgid "Add New Collection"
 msgstr "Добави Колекция"
 
@@ -31,7 +31,7 @@ msgstr "Добави Колекция"
 msgid "Add New FAQ"
 msgstr "Добавяне на нов ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:152
+#: src/CustomPostType/Portfolio.php:194
 msgid "Add New Portfolio"
 msgstr "Добави Проект"
 
@@ -39,7 +39,7 @@ msgstr "Добави Проект"
 msgid "All"
 msgstr "Всички"
 
-#: src/CustomPostType/Faq.php:77 src/CustomPostType/Portfolio.php:200
+#: src/CustomPostType/Faq.php:77 src/CustomPostType/Portfolio.php:242
 msgid "All Collections"
 msgstr "Всички Колекции"
 
@@ -47,20 +47,20 @@ msgstr "Всички Колекции"
 msgid "All FAQ's"
 msgstr "Всички ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:151
+#: src/CustomPostType/Portfolio.php:193
 msgid "All Portfolios"
 msgstr "Всички Проекти"
 
-#: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:198
+#: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:240
 msgid "Collection"
 msgstr "Колекция"
 
-#: src/CustomPostType/Faq.php:84 src/CustomPostType/Portfolio.php:197
-#: src/CustomPostType/Portfolio.php:207
+#: src/CustomPostType/Faq.php:84 src/CustomPostType/Portfolio.php:239
+#: src/CustomPostType/Portfolio.php:249
 msgid "Collections"
 msgstr "Колекции"
 
-#: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:203
+#: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:245
 msgid "Edit Collection"
 msgstr "Редактирай Колекция"
 
@@ -68,7 +68,7 @@ msgstr "Редактирай Колекция"
 msgid "Edit FAQ"
 msgstr "Редактиране на ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:155
+#: src/CustomPostType/Portfolio.php:197
 msgid "Edit Portfolio"
 msgstr "Редактирай Проект"
 
@@ -94,11 +94,11 @@ msgstr "Колекции с ЧЗВ"
 msgid "FAQ's"
 msgstr "Често задавани въпроси"
 
-#: src/CustomPostType/Faq.php:38 src/CustomPostType/Portfolio.php:162
+#: src/CustomPostType/Faq.php:38 src/CustomPostType/Portfolio.php:204
 msgid "Featured Image"
 msgstr "Основна снимка"
 
-#: src/CustomPostType/Faq.php:46 src/CustomPostType/Portfolio.php:170
+#: src/CustomPostType/Faq.php:46 src/CustomPostType/Portfolio.php:212
 msgid "Filter items list"
 msgstr "Филтриране на списъка"
 
@@ -114,24 +114,28 @@ msgstr ""
 msgid "Incompatible PHP version"
 msgstr "Несъвместима версия на PHP"
 
-#: src/CustomPostType/Faq.php:42 src/CustomPostType/Portfolio.php:166
+#: src/CustomPostType/Faq.php:42 src/CustomPostType/Portfolio.php:208
 msgid "Insert into item"
 msgstr "Вмъкване"
 
-#: src/CustomPostType/Faq.php:44 src/CustomPostType/Portfolio.php:168
+#: src/CustomPostType/Portfolio.php:154
+msgid "Is Featured"
+msgstr "Основен"
+
+#: src/CustomPostType/Faq.php:44 src/CustomPostType/Portfolio.php:210
 msgid "Items list"
 msgstr "Списък"
 
-#: src/CustomPostType/Faq.php:45 src/CustomPostType/Portfolio.php:169
+#: src/CustomPostType/Faq.php:45 src/CustomPostType/Portfolio.php:211
 msgid "Items list navigation"
 msgstr "Навигация в списъка"
 
-#: src/CustomPostType/Portfolio.php:227 src/CustomPostType/Portfolio.php:238
+#: src/CustomPostType/Portfolio.php:269 src/CustomPostType/Portfolio.php:280
 #| msgid "Make an Project Featured"
 msgid "Make a Project Featured"
-msgstr "Задай този проект като основен"
+msgstr "Направи основен"
 
-#: src/CustomPostType/Faq.php:83 src/CustomPostType/Portfolio.php:206
+#: src/CustomPostType/Faq.php:83 src/CustomPostType/Portfolio.php:248
 msgid "New Collection Name"
 msgstr "Име на Колекцията"
 
@@ -139,7 +143,7 @@ msgstr "Име на Колекцията"
 msgid "New FAQ"
 msgstr "Нов ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:154
+#: src/CustomPostType/Portfolio.php:196
 msgid "New Portfolio"
 msgstr "Нов Проект"
 
@@ -151,19 +155,19 @@ msgstr ""
 msgid "Nice and Simple Plugin to add additional functionality"
 msgstr "Nice & Simple плъгин за добавяне на допълнителна функционалности."
 
-#: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:160
+#: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:202
 msgid "Not found"
 msgstr "Не са открити"
 
-#: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:161
+#: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:203
 msgid "Not found in Trash"
 msgstr "Не е открит в кошчето"
 
-#: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:201
+#: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:243
 msgid "Parent Collection"
 msgstr "Родителска колекция"
 
-#: src/CustomPostType/Faq.php:79 src/CustomPostType/Portfolio.php:202
+#: src/CustomPostType/Faq.php:79 src/CustomPostType/Portfolio.php:244
 msgid "Parent Collection:"
 msgstr "Родителска колекция:"
 
@@ -171,35 +175,43 @@ msgstr "Родителска колекция:"
 msgid "Parent FAQ:"
 msgstr "Родителска ЧЗВ:"
 
-#: src/CustomPostType/Portfolio.php:150
+#: src/CustomPostType/Portfolio.php:192
 msgid "Parent Portfolio:"
 msgstr "Родителски Проект:"
 
-#: src/CustomPostType/Portfolio.php:145 src/CustomPostType/Portfolio.php:147
+#: src/CustomPostType/Portfolio.php:152
+msgid "Photo"
+msgstr "Снимка"
+
+#: src/CustomPostType/Portfolio.php:187 src/CustomPostType/Portfolio.php:189
 msgid "Portfolio"
 msgstr "Проект"
 
-#: src/CustomPostType/Portfolio.php:148
+#: src/CustomPostType/Portfolio.php:190
 msgid "Portfolio Archives"
 msgstr "Архив Проекти"
 
-#: src/CustomPostType/Portfolio.php:149
+#: src/CustomPostType/Portfolio.php:191
 msgid "Portfolio Attributes"
 msgstr "Атрибути на проекта"
 
-#: src/CustomPostType/Portfolio.php:144 src/CustomPostType/Portfolio.php:146
+#: src/CustomPostType/Portfolio.php:186 src/CustomPostType/Portfolio.php:188
 msgid "Portfolios"
 msgstr "Проекти"
 
-#: src/CustomPostType/Portfolio.php:174
+#: src/CustomPostType/Portfolio.php:216
 msgid "portfolios"
 msgstr "проекти"
 
-#: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:164
+#: src/CustomPostType/Portfolio.php:153
+msgid "Project Name"
+msgstr "Име на проекта"
+
+#: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:206
 msgid "Remove featured image"
 msgstr "Премахни основната снимка"
 
-#: src/CustomPostType/Faq.php:76 src/CustomPostType/Portfolio.php:199
+#: src/CustomPostType/Faq.php:76 src/CustomPostType/Portfolio.php:241
 msgid "Search Collections"
 msgstr "Търсене на Колекции"
 
@@ -207,11 +219,11 @@ msgstr "Търсене на Колекции"
 msgid "Search FAQ"
 msgstr "Търсене в ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:159
+#: src/CustomPostType/Portfolio.php:201
 msgid "Search Portfolio"
 msgstr "Търсене на проекти"
 
-#: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:163
+#: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:205
 msgid "Set featured image"
 msgstr "Задай основна снимка"
 
@@ -223,7 +235,7 @@ msgstr ""
 "Този плъгин изисква PHP версия 8.3 или по-нова. Моля, актуализирайте PHP "
 "версията на вашия сървър."
 
-#: src/CustomPostType/Faq.php:81 src/CustomPostType/Portfolio.php:204
+#: src/CustomPostType/Faq.php:81 src/CustomPostType/Portfolio.php:246
 msgid "Update Collection"
 msgstr "Актуализиране на колекцията"
 
@@ -231,19 +243,19 @@ msgstr "Актуализиране на колекцията"
 msgid "Update FAQ"
 msgstr "Актуализиране на ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:156
+#: src/CustomPostType/Portfolio.php:198
 msgid "Update Portfolio"
 msgstr "Актуализиране на Проект"
 
-#: src/CustomPostType/Faq.php:43 src/CustomPostType/Portfolio.php:167
+#: src/CustomPostType/Faq.php:43 src/CustomPostType/Portfolio.php:209
 msgid "Uploaded to this item"
 msgstr "Качено към тази страница"
 
-#: src/CustomPostType/Faq.php:41 src/CustomPostType/Portfolio.php:165
+#: src/CustomPostType/Faq.php:41 src/CustomPostType/Portfolio.php:207
 msgid "Use as featured image"
 msgstr "Използвай като основна снимка"
 
-#: src/CustomPostType/Portfolio.php:175
+#: src/CustomPostType/Portfolio.php:217
 msgid "User portfolios"
 msgstr "Потребителски проекти"
 
@@ -255,10 +267,10 @@ msgstr ""
 msgid "View FAQ"
 msgstr "Преглед на ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:157
+#: src/CustomPostType/Portfolio.php:199
 msgid "View Portfolio"
 msgstr "Разгледай Проекта"
 
-#: src/CustomPostType/Portfolio.php:158
+#: src/CustomPostType/Portfolio.php:200
 msgid "View Portfolios"
 msgstr "Разгледай всички Проекти"
