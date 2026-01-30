@@ -14,7 +14,7 @@ declare(strict_types=1);
  * Plugin Name:       Nice and Simple
  * Plugin URI:        https://nice-simple.com
  * Description:       Nice and Simple Plugin to add additional functionality
- * Version:           1.0.0
+ * Version:           1.0.1
  * Author:            Velizar Pramatarov <velizarpramatrov@yahoo.com>
  * Author URI:        https://vpramatarov.eu
  * License:           GPL-2.0
@@ -34,6 +34,6 @@ if (file_exists(__DIR__ . '/vendor/autoload.php')) {
 use NiceSimpleVp\Container;
 
 define("PLUGIN_PATH", plugin_dir_path(__FILE__));
-const NICE_SIMPLE_VP_VERSION = '1.0.0';
+const NICE_SIMPLE_VP_VERSION = '1.0.1';
 
 add_action('plugins_loaded', [Container::class, 'getInstance']);
