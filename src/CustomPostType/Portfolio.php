@@ -18,6 +18,7 @@ final class Portfolio implements CustomPostType, Metaboxes
 
         $this->registerPostType();
         $this->registerTaxonomy();
+        $this->actions();
     }
 
     public function addMetaBoxes(): void
@@ -111,7 +112,7 @@ final class Portfolio implements CustomPostType, Metaboxes
     }
 
     /* Metaboxes callback functions */
-    public function make_project_featured( \WP_Post $post ): void
+    public function makeProjectFeatured(\WP_Post $post ): void
     {
         $settings = $this->metaboxes['featured'];
         $nonce = $settings['nonce'];
@@ -127,7 +128,9 @@ final class Portfolio implements CustomPostType, Metaboxes
 
         printf('<input type="hidden" name="%s" value="">', $settings['metabox_id']); // default state
         printf(
-            '<label class="screen-reader-text" for="%1$s">%4$s</label><input type="%3$s" name="%2$s" id="%1$s" value="true" style="%6$s" %5$s><p>%7$s</p>',
+            '<label class="screen-reader-text" for="%1$s">%4$s</label>
+                    <input type="%3$s" name="%2$s" id="%1$s" value="true" style="%6$s" %5$s>
+                    <p>%7$s</p>',
             $metaKey,
             $name,
             $inputType,
@@ -136,6 +139,45 @@ final class Portfolio implements CustomPostType, Metaboxes
             $style,
             $help
         );
+    }
+
+    /**
+     * @param string[] $columns
+     * @return string[]
+     */
+    public function setCustomColumns(array $columns): array
+    {
+        $newColumns = [];
+        $newColumns['cb'] = $columns['cb'];
+        $newColumns['ns_avatar'] = __('Photo', 'nice-simple-vp'); // Featured Image
+        $newColumns['title'] = __('Project Name', 'nice-simple-vp');
+        $newColumns['ns_featured_project'] = __('Is Featured', 'nice-simple-vp');
+        $newColumns['taxonomy-collections'] = $columns['taxonomy-collections'];
+        $newColumns['author'] = $columns['author'];
+        $newColumns['date'] = $columns['date'];
+
+        return $newColumns;
+    }
+
+    public function renderCustomColumns(string $column, int $post_id): void
+    {
+        if ($column === 'ns_avatar') {
+            if (has_post_thumbnail($post_id)) {
+                $styles = 'width: 40px; height: 40px; border-radius: 50%; object-fit: cover; border: 1px solid #ccc;';
+                echo get_the_post_thumbnail($post_id, [40, 40], ['style' => $styles]);
+            } else {
+                echo '<span class="dashicons dashicons-admin-users" style="font-size: 30px; color: #ccc; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center;"></span>';
+            }
+        }
+
+        if ($column === 'ns_featured_project') {
+            $isFeatured = get_post_meta($post_id, '_featured_project', true);
+            if ($isFeatured) {
+                echo '<span class="dashicons dashicons-star-filled"></span>';
+            } else {
+                echo '<span class="dashicons dashicons-star-empty"></span>';
+            }
+        }
     }
 
     private function registerPostType(): void
@@ -174,7 +216,7 @@ final class Portfolio implements CustomPostType, Metaboxes
             'label'                 => __( 'portfolios', 'nice-simple-vp' ),
             'description'           => __( 'User portfolios', 'nice-simple-vp' ),
             'labels'                => $labels,
-            'supports'              => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt'],
+            'supports'              => [ 'title', 'editor', 'author', 'thumbnail', 'excerpt', 'custom-fields'],
             'taxonomies'            => [ 'collection' ],
             'hierarchical'          => false,
             'public'                => true,
@@ -225,10 +267,10 @@ final class Portfolio implements CustomPostType, Metaboxes
                 'metabox_id' => 'meta_featured_project',
                 'meta_key' => '_featured_project',
                 'title' => __( 'Make a Project Featured', 'nice-simple-vp' ),
-                'callback_fn' => [$this ,'make_project_featured'],
+                'callback_fn' => [$this , 'makeProjectFeatured'],
                 'screen' => self::NAME,
-                'context' => 'normal',
-                'priority' => 'default',
+                'context' => 'side', // normal, advanced, side
+                'priority' => 'high', // default
                 'callback_args' => null,
                 'nonce' => '_make_project_featured_nonce',
                 'input' => [
@@ -239,5 +281,12 @@ final class Portfolio implements CustomPostType, Metaboxes
                 ]
             ]
         ];
+    }
+
+    private function actions(): void
+    {
+        // --- ADMIN COLUMNS ---
+        add_filter('manage_portfolio_posts_columns', [$this, 'setCustomColumns']);
+        add_action('manage_portfolio_posts_custom_column', [$this, 'renderCustomColumns'], 10, 2);
     }
 }
