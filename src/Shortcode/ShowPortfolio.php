@@ -244,11 +244,6 @@ readonly class ShowPortfolio implements Shortcode
         }
         wp_reset_postdata();
 
-        $html .= '<div class="hero-content">
-            <h1>'.get_bloginfo('name').'</h1>
-            <p class="lead">'. __('We create spaces that inspire. Individual design and uncompromising quality for your home or office.', 'nice-simple-vp') .'</p>
-        </div>'; // Създаваме пространства, които вдъхновяват. Индивидуален дизайн и безкомпромисно качество за вашия дом или офис.
-
         $items = 0;
 
         $html .= '<div class="slides-track">';
@@ -257,6 +252,14 @@ readonly class ShowPortfolio implements Shortcode
             $html .= '<div class="img-container">';
             $html .= sprintf('<img src="%1$s" alt="%2$s" title="%2$s">', $project['featuredImgUrl'], $project['title']);
             $html .= '<div class="slide-overlay"></div>';
+            $html .= '<div class="slide-content">';
+            $html .= '<h2>'. $project['title'] .'</h2>';
+
+            if (!empty($project['excerpt'])) {
+                $html .= '<p>'. $project['excerpt'] .'</p>';
+            }
+
+            $html .=  '</div>'; // /.slide-content
             $html .= '</div>'; // /.img-container
             $html .= '</div>'; // /.slide
             $items++;
@@ -293,13 +296,14 @@ readonly class ShowPortfolio implements Shortcode
             $styles .= sprintf('.hero-slider #slide%d:checked ~ .slides-track { transform: translateX(%dvw); }', $i, $offset).PHP_EOL;
             $offset -= $blockWidth;
 
-            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d { transform: scale(1); z-index: 10; }', $i).PHP_EOL;
-            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-overlay { opacity: 0; }', $i).PHP_EOL;
+            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-content { opacity: 1; transform: translate(-50%%, -50%%); }', $i).PHP_EOL;
+            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-content h2 { color: var(--color-text-light); }', $i).PHP_EOL;
+            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d { transform: scale(1); z-index: 90; }', $i).PHP_EOL;
+            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-overlay { opacity: 0.4; }', $i).PHP_EOL;
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slider-nav label[for="slide%1$d"] { background: var(--color-accent); transform: scale(1.2); }', $i).PHP_EOL;
         }
         $html .= '</div>'; // /.slider-nav
 
-        $html .= '<div class="global-hero-overlay"></div>';
         $html .= '</section>'; // /#hero
         $styles .= '</style>';
 
