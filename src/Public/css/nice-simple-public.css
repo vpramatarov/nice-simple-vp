@@ -596,9 +596,4 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
 @media (max-width: 768px) {
     .hero-slider .hero-content h1 { font-size: 2.5em; }
     .hero-slider .slide { width: 85vw; margin: 0 1vw; }
-    /* Center offset: (100 - 85)/2 = 7.5vw. Block width: 87vw */
-    .hero-slider #slide0:checked ~ .slides-track { transform: translateX(7.5vw); }
-    .hero-slider #slide1:checked ~ .slides-track { transform: translateX(-79.5vw); } /* 7.5 - 87 */
-    .hero-slider #slide2:checked ~ .slides-track { transform: translateX(-166.5vw); } /* 7.5 - 174 */
-    .hero-slider #slide3:checked ~ .slides-track { transform: translateX(-253.5vw); } /* 7.5 - 261 */
 }

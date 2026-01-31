@@ -289,12 +289,27 @@ readonly class ShowPortfolio implements Shortcode
         /* Слайд 4 активен: Започва на 195vw. (20 - 195 = -175vw) */
 //        .hero-slider #slide3:checked ~ .slides-track { transform: translateX(-175vw); }
 
+//        Responsive Logic
+//        @media (max-width: 768px) {
+//              .hero-slider .slide { width: 85vw; margin: 0 1vw; }
+//              /* Center offset: (100 - 85)/2 = 7.5vw. Block width: 87vw */
+//              .hero-slider #slide0:checked ~ .slides-track { transform: translateX(7.5vw); }
+//              .hero-slider #slide1:checked ~ .slides-track { transform: translateX(-79.5vw); } /* 7.5 - 87 */
+//              .hero-slider #slide2:checked ~ .slides-track { transform: translateX(-166.5vw); } /* 7.5 - 174 */
+//              .hero-slider #slide3:checked ~ .slides-track { transform: translateX(-253.5vw); } /* 7.5 - 261 */
+//          }
+        $responsiveBlockWidth = 7.5;
+        $responsiveOffset = 87;
+        $responsiveStyles = '@media (max-width: 768px) {'.PHP_EOL;
+
         $html .= '<div class="slider-nav">';
         for ($i = 0; $i < $items; $i++) {
             $html .= sprintf('<label for="slide%d"></label>', $i);
 
             $styles .= sprintf('.hero-slider #slide%d:checked ~ .slides-track { transform: translateX(%dvw); }', $i, $offset).PHP_EOL;
+            $responsiveStyles .= sprintf('.hero-slider #slide%d:checked ~ .slides-track { transform: translateX(%dvw); }', $i, $responsiveBlockWidth).PHP_EOL;
             $offset -= $blockWidth;
+            $responsiveBlockWidth -= $responsiveOffset;
 
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-content { opacity: 1; transform: translate(-50%%, -50%%); }', $i).PHP_EOL;
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-content h2 { color: var(--color-text-light); }', $i).PHP_EOL;
@@ -305,7 +320,8 @@ readonly class ShowPortfolio implements Shortcode
         $html .= '</div>'; // /.slider-nav
 
         $html .= '</section>'; // /#hero
-        $styles .= '</style>';
+        $responsiveStyles .= '}'.PHP_EOL;
+        $styles .= $responsiveStyles.'</style>';
 
         return $styles.$html;
     }
