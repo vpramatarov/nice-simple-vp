@@ -323,6 +323,8 @@ readonly class ShowPortfolio implements Shortcode
         $responsiveStyles .= '}'.PHP_EOL;
         $styles .= $responsiveStyles.'</style>';
 
+        wp_enqueue_script('ns_mobile'); // enqueue js file
+
         return $styles.$html;
     }
 }

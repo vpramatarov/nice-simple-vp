@@ -35,6 +35,14 @@ final readonly class PublicCore
 //        );
 
         wp_register_script(
+            'ns_mobile',
+            plugin_dir_url( __FILE__ ) . 'js'. DIRECTORY_SEPARATOR .'mobile.js',
+            [],	// dependencies
+            false,
+            ['in_footer' => true, 'strategy' => 'async']
+        );
+
+        wp_register_script(
             'show_projects_portfolio',
             plugin_dir_url( __FILE__ ) . 'js'. DIRECTORY_SEPARATOR .'show_projects.js',
             [],	// dependencies
