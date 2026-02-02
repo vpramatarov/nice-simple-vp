@@ -1,7 +1,8 @@
 :root {
     --color-text-light: #ffffff;
     --color-text-muted: #cccccc;
-    --color-accent: #c5a47e;
+    --color-gold: rgb(215, 181, 109);
+    --color-gold-hover: #c5a47e;
     --project-card-overlay-gradient: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4));
     --collection-transition-speed: 0.4s;
 }
@@ -66,7 +67,7 @@
 }
 
 .card-info .card-title a:hover {
-    color: var(--color-accent);
+    color: var(--color-gold);
     text-decoration: underline !important;
 }
 
@@ -75,7 +76,7 @@
 }
 
 .category-tag {
-    color: var(--color-accent);
+    color: var(--color-gold);
     font-size: 0.75em;
     text-transform: uppercase;
     font-weight: 700;
@@ -84,7 +85,7 @@
 }
 
 .category-tag a {
-    color: var(--color-accent);
+    color: var(--color-gold);
     text-decoration: none !important;
 }
 
@@ -115,8 +116,8 @@
 
 .filter-collections .btn {
     background: transparent;
-    border: 1px solid var(--color-accent);
-    color: var(--color-accent);
+    border: 1px solid var(--color-gold);
+    color: var(--color-gold);
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     cursor: pointer;
@@ -129,8 +130,8 @@
 
 .filter-collections .btn:hover,
 .filter-collections .btn.active {
-    background-color: var(--color-accent);
-    border-color: var(--color-accent);
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
     color: var(--color-text-light);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
@@ -303,6 +304,7 @@ input[name="slide"] {
     width: 400%;
     transition: transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform;
+    margin-top: 2.5em;
 }
 
 .hero-slider .slide {
@@ -365,6 +367,20 @@ input[name="slide"] {
     font-size: 1.25em;
     line-height: 1.5;
     text-shadow: 1px 1px 5px rgba(0,0,0,0.5);
+}
+
+.hero-slider a.button {
+    background: var(--color-gold);
+    color: var(--color-text-light);
+    border-color: var(--color-gold);
+    border-radius: 10px;
+    text-shadow: none;
+}
+
+.hero-slider a.button:hover {
+    background: var(--color-gold-hover);
+    border-color: var(--color-gold-hover);
+    text-decoration: none;
 }
 
 .hero-slider .slider-nav {

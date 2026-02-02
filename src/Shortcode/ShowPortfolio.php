@@ -253,11 +253,13 @@ readonly class ShowPortfolio implements Shortcode
             $html .= sprintf('<img src="%1$s" alt="%2$s" title="%2$s">', $project['featuredImgUrl'], $project['title']);
             $html .= '<div class="slide-overlay"></div>';
             $html .= '<div class="slide-content">';
-            $html .= '<h2>'. $project['title'] .'</h2>';
+            $html .= sprintf('<h2><a href="%s">%s</a></h2>', $project['link'], $project['title']);
 
             if (!empty($project['excerpt'])) {
                 $html .= '<p>'. $project['excerpt'] .'</p>';
             }
+
+            $html .= sprintf('<p><a href="%s" class="button btn">%s</a></p>', $project['link'], __( 'View Portfolio', 'nice-simple-vp' ));
 
             $html .=  '</div>'; // /.slide-content
             $html .= '</div>'; // /.img-container
@@ -315,7 +317,7 @@ readonly class ShowPortfolio implements Shortcode
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-content h2 { color: var(--color-text-light); }', $i).PHP_EOL;
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d { transform: scale(1); z-index: 90; }', $i).PHP_EOL;
             $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slides-track .s%1$d .slide-overlay { opacity: 0.4; }', $i).PHP_EOL;
-            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slider-nav label[for="slide%1$d"] { background: var(--color-accent); transform: scale(1.2); }', $i).PHP_EOL;
+            $styles .= sprintf('.hero-slider #slide%1$d:checked ~ .slider-nav label[for="slide%1$d"] { background: var(--color-gold); transform: scale(1.2); }', $i).PHP_EOL;
         }
         $html .= '</div>'; // /.slider-nav
 
