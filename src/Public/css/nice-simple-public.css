@@ -613,3 +613,18 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
     .hero-slider .hero-content h1 { font-size: 2.5em; }
     .hero-slider .slide { width: 85vw; margin: 0 1vw; }
 }
+
+@media (max-width: 480px) {
+    .filter-collections .collections {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+
+
+@media (max-width: 360px) {
+    .hero-slider .slide-content p {
+        display: none;
+    }
+}
