@@ -29,16 +29,20 @@ readonly class ShowFaq implements Shortcode
             return $html;
         }
 
-        $defaults = ['open_first' => false, 'two_columns_layout' => false];
+        $defaults = ['open_first' => false, 'open_all' => false, 'two_columns_layout' => false , 'show_title' => true];
         $atts = shortcode_atts($defaults, $atts );
         $openFirst = filter_var($atts['open_first'], FILTER_VALIDATE_BOOLEAN);
+        $openAll = filter_var($atts['open_all'], FILTER_VALIDATE_BOOLEAN);
+        $showTitle = filter_var($atts['show_title'], FILTER_VALIDATE_BOOLEAN);
         $twoColumnsLayout = filter_var($atts['two_columns_layout'], FILTER_VALIDATE_BOOLEAN);
         $lastKey = array_key_last($faqs);
         $jsonLd = ['@context' => 'https://schema.org', '@type' => 'FAQPage', 'mainEntity' => []];
 
         $jsonLdScript = '<script type="application/ld+json">';
         $html .= '<div class="accordion-wrapper">';
-        $html .= sprintf('<h2>%s</h2>', __('FAQ', 'nice-simple-vp'));
+        if ($showTitle) {
+            $html .= sprintf('<h2>%s</h2>', __('FAQ', 'nice-simple-vp'));
+        }
 
         if ($twoColumnsLayout) {
             $html .= '<div class="row">';
@@ -50,7 +54,12 @@ readonly class ShowFaq implements Shortcode
             $id = $faq->ID;
             $title = get_the_title($id);
             $content = get_the_content($id);
-            $checked = ($openFirst && $key === 0) ? 'checked' : '';
+
+            if (!$openAll) {
+                $checked = ($openFirst && $key === 0) ? 'checked' : '';
+            } else {
+                $checked = $openAll ? 'checked' : '';
+            }
 
             $html .= sprintf('<input type="checkbox" id="faq-item-%d" class="accordion-input" %s>', $id, $checked);
             $html .= '<div class="accordion-item">';
