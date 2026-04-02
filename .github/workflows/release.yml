@@ -24,7 +24,14 @@ jobs:
       - name: Create Deployment Package
         run: |
           mkdir -p nice-simple-vp
-          rsync -rr . nice-simple-vp --exclude .git --exclude .github --exclude build.sh --exclude composer.json --exclude composer.lock --exclude .gitignore
+          rsync -rr . nice-simple-vp \
+            --exclude .git \
+            --exclude .github \
+            --exclude build.sh \
+            --exclude composer.json \
+            --exclude composer.lock \
+            --exclude .gitignore \
+            --exclude nice-simple-vp
           zip -r nice-simple-vp.zip nice-simple-vp
 
       - name: Create GitHub Release
