@@ -409,12 +409,6 @@ input[name="slide"] {
     gap: 15px;
 }
 
-.accordion-wrapper > .row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
-}
-
 .accordion-wrapper > .row::after {
     content: '';
     clear: both;
@@ -531,6 +525,12 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
     .portfolio-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
+    .accordion-wrapper > .row {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2rem;
+    }
 }
 
 @media (min-width: 1024px) {
@@ -613,6 +613,7 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
 @media (max-width: 768px) {
     .hero-slider .hero-content h1 { font-size: 2.5em; }
     .hero-slider .slide { width: 85vw; margin: 0 1vw; }
+    .accordion-wrapper > .row .accordion-item { margin-bottom: 15px; }
 }
 
 @media (max-width: 480px) {
