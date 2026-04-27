@@ -26,7 +26,7 @@ jQuery(document).ready(function($) {
             return;
         }
 
-        $btn.addClass('loading').text(nsJs.loadingText);
+        $btn.prop('disabled', true).addClass('loading').text(nsJs.loadingText);
 
         $.post(nsJs.ajaxUrl, {
             action: 'ns_load_more',
@@ -34,7 +34,7 @@ jQuery(document).ready(function($) {
             offset: offset,
             limit: limit
         }, function(res) {
-            $btn.removeClass('loading').text(nsJs.buttonText);
+            $btn.prop('disabled', false).removeClass('loading').text(nsJs.buttonText);
             if (res.success) {
                 container.append(res.data.html);
                 $btn.data('offset', offset + limit);

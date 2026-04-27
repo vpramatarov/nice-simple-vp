@@ -6,10 +6,14 @@ namespace NiceSimpleVp\Shortcode;
 
 use NiceSimpleVp\Includes\Utils;
 use NiceSimpleVp\Repository\PortfolioRepository;
+use NiceSimpleVp\Settings\Settings;
 
 readonly class ShowPortfolio implements Shortcode
 {
-    public function __construct(private PortfolioRepository $portfolioRepository) {}
+    public function __construct(
+        private PortfolioRepository $portfolioRepository,
+        private Settings $settings
+    ) {}
 
     /**
      * Register all shortcodes here
@@ -23,7 +27,7 @@ readonly class ShowPortfolio implements Shortcode
 
     public function shortcode_show_projects(): string
     {
-        $limit = NICE_SIMPLE_VP_LIMIT_PER_PAGE;
+        $limit = $this->settings->getProjectsLimit();
         $projects = $this->portfolioRepository->get($limit);
         $html = '';
 

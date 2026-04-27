@@ -6,10 +6,14 @@ namespace NiceSimpleVp\Public;
 
 use NiceSimpleVp\Includes\Utils;
 use NiceSimpleVp\Repository\PortfolioRepository;
+use NiceSimpleVp\Settings\Settings;
 
 final readonly class PublicCore
 {
-    public function __construct(private PortfolioRepository $portfolioRepository) {}
+    public function __construct(
+        private PortfolioRepository $portfolioRepository,
+        private Settings $settings
+    ) {}
 
 
     /**
@@ -41,7 +45,7 @@ final readonly class PublicCore
             'ajaxUrl' => admin_url('admin-ajax.php'),
             'buttonText' => __('Load More', 'nice-simple-vp'),
             'loadingText' => __('Loading...', 'nice-simple-vp'),
-            'projectsLimit' => 12,
+            'projectsLimit' => $this->settings->getProjectsLimit(),
             'nonce' => wp_create_nonce('ns_nonce')
         ]);
 
@@ -73,8 +77,9 @@ final readonly class PublicCore
             wp_send_json_error(['message' => __('Security check failed.', 'nice-simple-vp')]);
         }
         $offset = isset($_POST['offset']) ? absint($_POST['offset']) : 0;
-        $limit_req = isset($_POST['limit']) ? absint($_POST['limit']) : NICE_SIMPLE_VP_LIMIT_PER_PAGE;
-        $limit = max(1, min(NICE_SIMPLE_VP_LIMIT_PER_PAGE, $limit_req)); // clamp the limit between 1 and NICE_SIMPLE_VP_LIMIT_PER_PAGE
+        $configuredLimit = $this->settings->getProjectsLimit();
+        $limit_req = isset($_POST['limit']) ? absint($_POST['limit']) : $configuredLimit;
+        $limit = max(1, min($configuredLimit, $limit_req)); // clamp between 1 and the configured limit
         $total = $this->portfolioRepository->count();
         $projects = $this->portfolioRepository->get($limit, $offset);
 

@@ -15,6 +15,9 @@ use NiceSimpleVp\Includes\Loader;
 use NiceSimpleVp\Public\PublicCore;
 use NiceSimpleVp\Repository\FaqRepository;
 use NiceSimpleVp\Repository\PortfolioRepository;
+use NiceSimpleVp\Settings\CssVariableInjector;
+use NiceSimpleVp\Settings\Settings;
+use NiceSimpleVp\Settings\SettingsPage;
 use NiceSimpleVp\Shortcode\ShowFaq;
 use NiceSimpleVp\Shortcode\ShowPortfolio;
 
@@ -36,6 +39,8 @@ final class Container
     private PortfolioRepository $portfolioRepository;
 
     private FaqRepository $faqRepository;
+
+    private Settings $settings;
 
     /**
      * Container constructor.
@@ -128,6 +133,7 @@ final class Container
     {
         $this->portfolioRepository = new PortfolioRepository();
         $this->faqRepository = new FaqRepository();
+        $this->settings = new Settings();
         $this->loader = new Loader();
         // init locale (i18n)
         $l18n = new I18n();
@@ -135,6 +141,7 @@ final class Container
 
         $this->registerCPT();
         $this->defineAdminHooks();
+        $this->defineSettingsHooks();
         $this->definePublicHooks();
         $this->registerShortcodes();
         $this->loader->run();
@@ -169,7 +176,7 @@ final class Container
     private function registerShortcodes(): void
     {
         $shortcodes = [
-            new ShowPortfolio($this->portfolioRepository),
+            new ShowPortfolio($this->portfolioRepository, $this->settings),
             new ShowFaq($this->faqRepository)
         ];
 
@@ -201,7 +208,7 @@ final class Container
      */
     private function definePublicHooks(): void
     {
-        $pluginPublic = new PublicCore($this->portfolioRepository);
+        $pluginPublic = new PublicCore($this->portfolioRepository, $this->settings);
 
         // actions
         $this->loader->addAction('wp_enqueue_scripts', $pluginPublic, 'enqueueStyles' );
@@ -211,5 +218,23 @@ final class Container
 
         $this->loader->addAction('wp_ajax_ns_get_nonce', $pluginPublic, 'handleGetNonce');
         $this->loader->addAction('wp_ajax_nopriv_ns_get_nonce', $pluginPublic, 'handleGetNonce');
+    }
+
+    /**
+     * Register hooks for the Settings page and the runtime CSS variable injector.
+     *
+     * @access   private
+     */
+    private function defineSettingsHooks(): void
+    {
+        $settingsPage = new SettingsPage($this->settings);
+        $this->loader->addAction('admin_menu', $settingsPage, 'registerMenu');
+        $this->loader->addAction('admin_init', $settingsPage, 'registerSettings');
+        $this->loader->addAction('admin_enqueue_scripts', $settingsPage, 'enqueueAssets');
+
+        // Runs after PublicCore::enqueueStyles (priority 10) so the inline style
+        // attaches to the already-registered public stylesheet handle.
+        $cssInjector = new CssVariableInjector($this->settings);
+        $this->loader->addAction('wp_enqueue_scripts', $cssInjector, 'inject', 20);
     }
 }

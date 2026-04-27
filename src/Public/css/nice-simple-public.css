@@ -5,6 +5,14 @@
     --color-gold-hover: #c5a47e;
     --project-card-overlay-gradient: linear-gradient(to top, rgba(15, 23, 42, 0.95), rgba(15, 23, 42, 0.4));
     --collection-transition-speed: 0.4s;
+
+    /* Button colors — overridable from Settings → Nice and Simple → Buttons. */
+    --ns-btn-color: #d7b56d;
+    --ns-btn-bg: transparent;
+    --ns-btn-border: #d7b56d;
+    --ns-btn-color-hover: #ffffff;
+    --ns-btn-bg-hover: #c5a47e;
+    --ns-btn-border-hover: #c5a47e;
 }
 
 /* --- THE GRID --- */
@@ -110,9 +118,9 @@
 }
 
 .ns-load-more-btn {
-    background: transparent;
-    border: 1px solid var(--color-gold);
-    color: var(--color-gold);
+    background-color: var(--ns-btn-bg);
+    border: 1px solid var(--ns-btn-border);
+    color: var(--ns-btn-color);
     padding: 5px 15px;
     border-radius: 50px;
     transition: all 0.3s ease;
@@ -122,11 +130,15 @@
 }
 
 .ns-load-more-btn:hover {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-text-light);
+    background-color: var(--ns-btn-bg-hover);
+    border-color: var(--ns-btn-border-hover);
+    color: var(--ns-btn-color-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+}
+
+.ns-load-more-btn:disabled {
+    cursor: not-allowed;
 }
 
 /* --- FILTERS & FILTERING LOGIC CSS --- */
@@ -139,9 +151,9 @@
 }
 
 .filter-collections .btn {
-    background: transparent;
-    border: 1px solid var(--color-gold);
-    color: var(--color-gold);
+    background-color: var(--ns-btn-bg);
+    border: 1px solid var(--ns-btn-border);
+    color: var(--ns-btn-color);
     padding: 0.6rem 1.5rem;
     border-radius: 50px;
     cursor: pointer;
@@ -154,9 +166,9 @@
 
 .filter-collections .btn:hover,
 .filter-collections .btn.active {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-text-light);
+    background-color: var(--ns-btn-color);
+    border-color: var(--ns-btn-color);
+    color: var(--ns-btn-color-hover);
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
 }
@@ -394,16 +406,17 @@ input[name="slide"] {
 }
 
 .hero-slider a.button {
-    background: var(--color-gold);
-    color: var(--color-text-light);
-    border-color: var(--color-gold);
+    background-color: var(--ns-btn-bg);
+    color: var(--ns-btn-color);
+    border-color: var(--ns-btn-border);
     border-radius: 10px;
     text-shadow: none;
 }
 
 .hero-slider a.button:hover {
-    background: var(--color-gold-hover);
-    border-color: var(--color-gold-hover);
+    background-color: var(--ns-btn-bg-hover);
+    border-color: var(--ns-btn-border-hover);
+    color: var(--ns-btn-color-hover);
     text-decoration: none;
 }
 
