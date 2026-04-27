@@ -17,3 +17,5 @@ vendor/
 *.sh
 *.txt
 *.sql
+*.md
+!README.md
