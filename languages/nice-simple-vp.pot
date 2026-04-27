@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Nice and Simple Plugin to add additional functionality\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-01-30 21:21+0000\n"
+"POT-Creation-Date: 2026-04-27 15:36+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -52,6 +52,18 @@ msgstr ""
 msgid "All Portfolios"
 msgstr ""
 
+#: src/Settings/SettingsPage.php:206 src/Settings/SettingsPage.php:229
+msgid "Background color"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:207 src/Settings/SettingsPage.php:230
+msgid "Border color"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:285
+msgid "Buttons"
+msgstr ""
+
 #: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:240
 msgid "Collection"
 msgstr ""
@@ -59,6 +71,24 @@ msgstr ""
 #: src/CustomPostType/Faq.php:84 src/CustomPostType/Portfolio.php:239
 #: src/CustomPostType/Portfolio.php:249
 msgid "Collections"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:200
+msgid ""
+"Colors used when buttons are at rest. Leave a field blank to use the theme "
+"default (transparent for background)."
+msgstr ""
+
+#: src/Settings/SettingsPage.php:223
+msgid "Colors used when buttons are hovered or active."
+msgstr ""
+
+#: src/Settings/SettingsPage.php:251
+msgid "Controls how the [show_projects] grid paginates."
+msgstr ""
+
+#: src/Settings/SettingsPage.php:199
+msgid "Default state"
 msgstr ""
 
 #: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:245
@@ -75,7 +105,7 @@ msgstr ""
 
 #: src/CustomPostType/Faq.php:20 src/CustomPostType/Faq.php:21
 #: src/CustomPostType/Faq.php:22 src/CustomPostType/Faq.php:23
-#: src/Shortcode/ShowFaq.php:41
+#: src/Shortcode/ShowFaq.php:44
 msgid "FAQ"
 msgstr ""
 
@@ -101,6 +131,10 @@ msgstr ""
 
 #: src/CustomPostType/Faq.php:46 src/CustomPostType/Portfolio.php:212
 msgid "Filter items list"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:222
+msgid "Hover state"
 msgstr ""
 
 #. URI of the plugin
@@ -131,6 +165,15 @@ msgstr ""
 msgid "Items list navigation"
 msgstr ""
 
+#: src/Public/PublicCore.php:46 src/Settings/SettingsPage.php:250
+#: src/Shortcode/ShowPortfolio.php:60
+msgid "Load More"
+msgstr ""
+
+#: src/Public/PublicCore.php:47
+msgid "Loading..."
+msgstr ""
+
 #: src/CustomPostType/Portfolio.php:269 src/CustomPostType/Portfolio.php:280
 msgid "Make a Project Featured"
 msgstr ""
@@ -148,11 +191,20 @@ msgid "New Portfolio"
 msgstr ""
 
 #. Name of the plugin
+#: src/Settings/SettingsPage.php:24 src/Settings/SettingsPage.php:25
 msgid "Nice and Simple"
 msgstr ""
 
 #. Description of the plugin
 msgid "Nice and Simple Plugin to add additional functionality"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:58
+msgid "Nice and Simple — Settings"
+msgstr ""
+
+#: src/Public/PublicCore.php:87
+msgid "No more projects"
 msgstr ""
 
 #: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:202
@@ -161,6 +213,17 @@ msgstr ""
 
 #: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:203
 msgid "Not found in Trash"
+msgstr ""
+
+#. %d: hardcoded fallback limit.
+#: src/Settings/SettingsPage.php:187
+msgid ""
+"Number of projects shown per page (initial render and Load More batch). "
+"Falls back to %d if unset."
+msgstr ""
+
+#: src/Settings/SettingsPage.php:286
+msgid "Pagination"
 msgstr ""
 
 #: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:243
@@ -207,6 +270,10 @@ msgstr ""
 msgid "Project Name"
 msgstr ""
 
+#: src/Settings/SettingsPage.php:257
+msgid "Projects per page"
+msgstr ""
+
 #: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:206
 msgid "Remove featured image"
 msgstr ""
@@ -223,8 +290,16 @@ msgstr ""
 msgid "Search Portfolio"
 msgstr ""
 
+#: src/Public/PublicCore.php:77
+msgid "Security check failed."
+msgstr ""
+
 #: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:205
 msgid "Set featured image"
+msgstr ""
+
+#: src/Settings/SettingsPage.php:205 src/Settings/SettingsPage.php:228
+msgid "Text color"
 msgstr ""
 
 #: src/Includes/Activator.php:18
@@ -265,7 +340,7 @@ msgstr ""
 msgid "View FAQ"
 msgstr ""
 
-#: src/CustomPostType/Portfolio.php:199
+#: src/CustomPostType/Portfolio.php:199 src/Shortcode/ShowPortfolio.php:262
 msgid "View Portfolio"
 msgstr ""
 

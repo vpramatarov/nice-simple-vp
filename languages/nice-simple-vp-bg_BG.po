@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Nice and Simple Plugin to add additional functionality\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-12-23 13:12+0000\n"
-"PO-Revision-Date: 2026-01-30 21:22+0000\n"
+"PO-Revision-Date: 2026-04-27 15:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: Български\n"
 "Language: bg_BG\n"
@@ -51,6 +51,18 @@ msgstr "Всички ЧЗВ"
 msgid "All Portfolios"
 msgstr "Всички Проекти"
 
+#: src/Settings/SettingsPage.php:206 src/Settings/SettingsPage.php:229
+msgid "Background color"
+msgstr "Цвят на фона"
+
+#: src/Settings/SettingsPage.php:207 src/Settings/SettingsPage.php:230
+msgid "Border color"
+msgstr "Цвят на рамката"
+
+#: src/Settings/SettingsPage.php:285
+msgid "Buttons"
+msgstr "Бутони"
+
 #: src/CustomPostType/Faq.php:75 src/CustomPostType/Portfolio.php:240
 msgid "Collection"
 msgstr "Колекция"
@@ -59,6 +71,28 @@ msgstr "Колекция"
 #: src/CustomPostType/Portfolio.php:249
 msgid "Collections"
 msgstr "Колекции"
+
+#: src/Settings/SettingsPage.php:200
+msgid ""
+"Colors used when buttons are at rest. Leave a field blank to use the theme "
+"default (transparent for background)."
+msgstr ""
+"Основни цветове използвани за бутоните. Оставете полето празно, за да "
+"използвате цветовете от темата по подразбиране (прозрачен фон)."
+
+#: src/Settings/SettingsPage.php:223
+msgid "Colors used when buttons are hovered or active."
+msgstr ""
+"Цветове, използвани при задържане на курсора върху бутоните или при активни "
+"бутони."
+
+#: src/Settings/SettingsPage.php:251
+msgid "Controls how the [show_projects] grid paginates."
+msgstr "Контролира как shortcode-а [show_projects] се страницира."
+
+#: src/Settings/SettingsPage.php:199
+msgid "Default state"
+msgstr "Състояние по подразбиране"
 
 #: src/CustomPostType/Faq.php:80 src/CustomPostType/Portfolio.php:245
 msgid "Edit Collection"
@@ -74,7 +108,7 @@ msgstr "Редактирай Проект"
 
 #: src/CustomPostType/Faq.php:20 src/CustomPostType/Faq.php:21
 #: src/CustomPostType/Faq.php:22 src/CustomPostType/Faq.php:23
-#: src/Shortcode/ShowFaq.php:41
+#: src/Shortcode/ShowFaq.php:44
 msgid "FAQ"
 msgstr "ЧЗВ"
 
@@ -102,13 +136,17 @@ msgstr "Основна снимка"
 msgid "Filter items list"
 msgstr "Филтриране на списъка"
 
+#: src/Settings/SettingsPage.php:222
+msgid "Hover state"
+msgstr "Състояние при задържане на курсора"
+
 #. URI of the plugin
 msgid "https://nice-simple.com"
-msgstr ""
+msgstr "https://nice-simple.com"
 
 #. Author URI of the plugin
 msgid "https://vpramatarov.eu"
-msgstr ""
+msgstr "https://vpramatarov.eu"
 
 #: src/Includes/Activator.php:19
 msgid "Incompatible PHP version"
@@ -130,6 +168,15 @@ msgstr "Списък"
 msgid "Items list navigation"
 msgstr "Навигация в списъка"
 
+#: src/Public/PublicCore.php:46 src/Settings/SettingsPage.php:250
+#: src/Shortcode/ShowPortfolio.php:60
+msgid "Load More"
+msgstr "Покажи още"
+
+#: src/Public/PublicCore.php:47
+msgid "Loading..."
+msgstr "Зареждане..."
+
 #: src/CustomPostType/Portfolio.php:269 src/CustomPostType/Portfolio.php:280
 #| msgid "Make an Project Featured"
 msgid "Make a Project Featured"
@@ -148,12 +195,21 @@ msgid "New Portfolio"
 msgstr "Нов Проект"
 
 #. Name of the plugin
+#: src/Settings/SettingsPage.php:24 src/Settings/SettingsPage.php:25
 msgid "Nice and Simple"
-msgstr ""
+msgstr "Nice and Simple"
 
 #. Description of the plugin
 msgid "Nice and Simple Plugin to add additional functionality"
 msgstr "Nice & Simple плъгин за добавяне на допълнителна функционалности."
+
+#: src/Settings/SettingsPage.php:58
+msgid "Nice and Simple — Settings"
+msgstr "Nice and Simple — Настройки"
+
+#: src/Public/PublicCore.php:87
+msgid "No more projects"
+msgstr "Няма повече проекти"
 
 #: src/CustomPostType/Faq.php:36 src/CustomPostType/Portfolio.php:202
 msgid "Not found"
@@ -162,6 +218,19 @@ msgstr "Не са открити"
 #: src/CustomPostType/Faq.php:37 src/CustomPostType/Portfolio.php:203
 msgid "Not found in Trash"
 msgstr "Не е открит в кошчето"
+
+#. %d: hardcoded fallback limit.
+#: src/Settings/SettingsPage.php:187
+msgid ""
+"Number of projects shown per page (initial render and Load More batch). "
+"Falls back to %d if unset."
+msgstr ""
+"Брой проекти, показани на страница (първоначално рендериране и „Покажи още“)."
+" Връща се към %d, ако не е зададено."
+
+#: src/Settings/SettingsPage.php:286
+msgid "Pagination"
+msgstr "Странициране"
 
 #: src/CustomPostType/Faq.php:78 src/CustomPostType/Portfolio.php:243
 msgid "Parent Collection"
@@ -207,6 +276,10 @@ msgstr "проекти"
 msgid "Project Name"
 msgstr "Име на проекта"
 
+#: src/Settings/SettingsPage.php:257
+msgid "Projects per page"
+msgstr "Проекти на страница"
+
 #: src/CustomPostType/Faq.php:40 src/CustomPostType/Portfolio.php:206
 msgid "Remove featured image"
 msgstr "Премахни основната снимка"
@@ -223,9 +296,17 @@ msgstr "Търсене в ЧЗВ"
 msgid "Search Portfolio"
 msgstr "Търсене на проекти"
 
+#: src/Public/PublicCore.php:77
+msgid "Security check failed."
+msgstr "Проверката за сигурност не бе успешна."
+
 #: src/CustomPostType/Faq.php:39 src/CustomPostType/Portfolio.php:205
 msgid "Set featured image"
 msgstr "Задай основна снимка"
+
+#: src/Settings/SettingsPage.php:205 src/Settings/SettingsPage.php:228
+msgid "Text color"
+msgstr "Цвят на текста"
 
 #: src/Includes/Activator.php:18
 msgid ""
@@ -261,13 +342,13 @@ msgstr "Потребителски проекти"
 
 #. Author of the plugin
 msgid "Velizar Pramatarov <velizarpramatrov@yahoo.com>"
-msgstr ""
+msgstr "Velizar Pramatarov <velizarpramatrov@yahoo.com>"
 
 #: src/CustomPostType/Faq.php:33 src/CustomPostType/Faq.php:34
 msgid "View FAQ"
 msgstr "Преглед на ЧЗВ"
 
-#: src/CustomPostType/Portfolio.php:199
+#: src/CustomPostType/Portfolio.php:199 src/Shortcode/ShowPortfolio.php:262
 msgid "View Portfolio"
 msgstr "Разгледай Проекта"
 
