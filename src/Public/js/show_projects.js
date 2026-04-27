@@ -4,12 +4,12 @@ document.addEventListener('DOMContentLoaded', () => {
 
     filterButtons.forEach(button => {
         button.addEventListener('click', () => {
-            // 1. Remove active class from all buttons
+            // Remove active class from all buttons
             filterButtons.forEach(btn => btn.classList.remove('active'));
-            // 2. Add active class to clicked button
+            // Add active class to clicked button
             button.classList.add('active');
 
-            // 3. Get value to filter by
+            // Get value to filter by
             const filterValue = button.getAttribute('data-filter');
 
             projectCards.forEach(card => {

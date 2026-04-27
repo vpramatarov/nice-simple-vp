@@ -6,7 +6,7 @@ namespace NiceSimpleVp\Admin;
 
 final readonly class AdminCore
 {
-    public function __construct(private string $pluginName, private string $version) {}
+    public function __construct() {}
 
 
     /**
@@ -16,7 +16,7 @@ final readonly class AdminCore
      */
     public function enqueueStyles(): void
     {
-        wp_enqueue_style( $this->pluginName, plugin_dir_url( __FILE__ ) . 'css'. DIRECTORY_SEPARATOR . 'nice-simple-admin.css', [], $this->version, 'all' );
+        wp_enqueue_style(NICE_SIMPLE_VP_PLUGIN_NAME, plugin_dir_url( __FILE__ ) . 'css'. DIRECTORY_SEPARATOR . 'nice-simple-admin.css', [], NICE_SIMPLE_VP_VERSION, 'all' );
     }
 
     /**
@@ -26,6 +26,6 @@ final readonly class AdminCore
      */
     public function enqueueScripts(): void
     {
-        wp_enqueue_script( $this->pluginName, plugin_dir_url( __FILE__ ) . 'js'. DIRECTORY_SEPARATOR. 'nice-simple-admin.js', ['jquery'], $this->version, ['in_footer' => true, 'strategy'  => 'async'] );
+        wp_enqueue_script(NICE_SIMPLE_VP_PLUGIN_NAME, plugin_dir_url( __FILE__ ) . 'js'. DIRECTORY_SEPARATOR. 'nice-simple-admin.js', ['jquery'], NICE_SIMPLE_VP_VERSION, ['in_footer' => true, 'strategy'  => 'async'] );
     }
 }

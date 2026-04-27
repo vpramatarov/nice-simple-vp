@@ -27,6 +27,32 @@ class PortfolioRepository implements Collection, Taxonomy
     /**
      * @return \WP_Post[]|int[]
      */
+    public function get(int $limit = 12, int $offset = 0): array
+    {
+        return get_posts([
+            'post_type' => self::POST_TYPE,
+            'post_status' => 'publish',
+            'posts_per_page' => $limit,
+            'offset' => $offset,
+        ]);
+    }
+
+    public function count(): int
+    {
+        $args = [
+            'post_type' => self::POST_TYPE,
+            'status' => 'publish',
+            'fields' => 'ids',
+            'posts_per_page' => -1
+        ];
+
+        $query = new \WP_Query($args);
+        return $query->found_posts;
+    }
+
+    /**
+     * @return \WP_Post[]|int[]
+     */
     public function getFeatured(): array
     {
         return get_posts([
@@ -35,7 +61,7 @@ class PortfolioRepository implements Collection, Taxonomy
             'posts_per_page' => -1,
             'meta_query' => [
                  [
-                     'key'   => '_featured_project',
+                     'key' => '_featured_project',
                      'value' => 'true',
                  ]
             ]
@@ -54,8 +80,8 @@ class PortfolioRepository implements Collection, Taxonomy
             'tax_query' => [
                 [
                     'taxonomy' => 'collections',
-                    'field'    => 'slug',
-                    'terms'    => $collection
+                    'field' => 'slug',
+                    'terms' => $collection
                 ]
             ]
         ];

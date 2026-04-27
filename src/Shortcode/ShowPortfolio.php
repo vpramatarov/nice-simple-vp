@@ -23,12 +23,15 @@ readonly class ShowPortfolio implements Shortcode
 
     public function shortcode_show_projects(): string
     {
-        $projects = $this->portfolioRepository->getAll();
+        $limit = NICE_SIMPLE_VP_LIMIT_PER_PAGE;
+        $projects = $this->portfolioRepository->get($limit);
         $html = '';
 
         if (empty($projects)) {
             return $html;
         }
+
+        $total = $this->portfolioRepository->count();
 
         $html .= '<div class="filter-collections">';
         $html .= Utils::getTermsListAsButtons(
@@ -38,32 +41,25 @@ readonly class ShowPortfolio implements Shortcode
 
         $html .= '<div class="portfolio-grid">';
         foreach ( $projects as $project ) {
-            setup_postdata( $project );
-            $id = $project->ID;
-            $title = get_the_title($id);
-            $featuredImg = get_the_post_thumbnail_url($id, 'medium_large');
-            $link = esc_url(get_permalink($id));
-            $excerpt = get_the_excerpt($id);
-            $collectionLinks = Utils::getTermsAsLinksForTaxonomy($id, $this->portfolioRepository->getTaxonomyName());
-            $collections = strip_tags($collectionLinks);
-
-            $html .= '<div class="project-card" data-category="'.$collections.'">';
-            $html .= '<div class="card-bg" style="background-image: url('. esc_url($featuredImg) . ');"></div>';
-            $html .= '<div class="card-overlay">';
-            $html .= '<div class="card-info">';
-            $html .= $collectionLinks;
-            $html .= '<h3 class="card-title"><a href="'. $link .'">' . $title . '</a></h3>';
-            if (!empty($excerpt)) {
-                $html .= '<p class="card-desc">' . $excerpt . '</p>';
-            }
-            $html .= '</div>'; // ./card-info
-            $html .= '</div>'; // ./card-overlay
-            $html .= '</div>'; // ./project-card
+            $html .= Utils::renderProjectCardHtml($project, $this->portfolioRepository->getTaxonomyName());
         }
         wp_reset_postdata();
+
         $html .= '</div>'; // ./portfolio-grid
 
-        wp_enqueue_script('show_projects_portfolio'); // enqueue js file
+        if ($total > $limit) {
+            $nonce = wp_create_nonce('ns_nonce');
+            $html .= sprintf(
+                '<div class="ns-load-more-container">
+                        <button class="ns-load-more-btn" data-offset="%d" data-limit="%d" data-nonce="%s">%s</button>
+                    </div>',
+                $limit, $limit, $nonce, __('Load More', 'nice-simple-vp')
+            );
+        }
+
+        // enqueue js files
+        wp_enqueue_script('show_projects_portfolio');
+        wp_enqueue_script(NICE_SIMPLE_VP_PLUGIN_NAME);
         return $html;
     }
 

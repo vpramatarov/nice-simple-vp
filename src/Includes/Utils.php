@@ -111,4 +111,31 @@ class Utils
 
         return $html;
     }
+
+    public static function renderProjectCardHtml(\WP_Post $project, string $taxonomyName): string
+    {
+        setup_postdata( $project );
+        $id = $project->ID;
+        $title = get_the_title($id);
+        $featuredImg = get_the_post_thumbnail_url($id, 'medium_large');
+        $link = esc_url(get_permalink($id));
+        $excerpt = get_the_excerpt($id);
+        $collectionLinks = Utils::getTermsAsLinksForTaxonomy($id, $taxonomyName);
+        $collections = strip_tags($collectionLinks);
+
+        $html = '<div class="project-card" data-category="'.$collections.'">';
+        $html .= '<div class="card-bg" style="background-image: url('. esc_url($featuredImg) . ');"></div>';
+        $html .= '<div class="card-overlay">';
+        $html .= '<div class="card-info">';
+        $html .= $collectionLinks;
+        $html .= '<h3 class="card-title"><a href="'. $link .'">' . $title . '</a></h3>';
+        if (!empty($excerpt)) {
+            $html .= '<p class="card-desc">' . $excerpt . '</p>';
+        }
+        $html .= '</div>'; // ./card-info
+        $html .= '</div>'; // ./card-overlay
+        $html .= '</div>'; // ./project-card
+
+        return $html;
+    }
 }

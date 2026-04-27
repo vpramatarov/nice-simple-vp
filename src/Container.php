@@ -31,10 +31,6 @@ final class Container
      */
     private static ?self $instance = null;
 
-    private string $pluginName;
-
-    private string $version;
-
     private Loader $loader;
 
     private PortfolioRepository $portfolioRepository;
@@ -50,14 +46,6 @@ final class Container
      */
     private function __construct()
     {
-        $this->pluginName = 'nice-simple-vp';
-
-        if (defined('NICE_SIMPLE_VP_VERSION')) {
-            $this->version = NICE_SIMPLE_VP_VERSION;
-        } else {
-            $this->version = '1.0.0';
-        }
-
         /**
          * Register activation hook.
          * Register activation hook for this plugin by invoking activate in NiceSimpleVp class.
@@ -180,7 +168,10 @@ final class Container
      */
     private function registerShortcodes(): void
     {
-        $shortcodes = [new ShowPortfolio($this->portfolioRepository), new ShowFaq($this->faqRepository)];
+        $shortcodes = [
+            new ShowPortfolio($this->portfolioRepository),
+            new ShowFaq($this->faqRepository)
+        ];
 
         foreach ($shortcodes as $shortcode) {
             $this->loader->addAction('init', $shortcode, 'register' );
@@ -195,7 +186,7 @@ final class Container
      */
     private function defineAdminHooks(): void
     {
-        $pluginAdmin = new AdminCore($this->pluginName, $this->version);
+        $pluginAdmin = new AdminCore();
 
         // actions
         $this->loader->addAction('admin_enqueue_scripts', $pluginAdmin, 'enqueueStyles' );
@@ -210,10 +201,15 @@ final class Container
      */
     private function definePublicHooks(): void
     {
-        $pluginPublic = new PublicCore($this->pluginName, $this->version);
+        $pluginPublic = new PublicCore($this->portfolioRepository);
 
         // actions
         $this->loader->addAction('wp_enqueue_scripts', $pluginPublic, 'enqueueStyles' );
         $this->loader->addAction('wp_enqueue_scripts', $pluginPublic, 'enqueueScripts' );
+        $this->loader->addAction('wp_ajax_ns_load_more', $pluginPublic, 'handleLoadMore' );
+        $this->loader->addAction('wp_ajax_nopriv_ns_load_more', $pluginPublic, 'handleLoadMore' );
+
+        $this->loader->addAction('wp_ajax_ns_get_nonce', $pluginPublic, 'handleGetNonce');
+        $this->loader->addAction('wp_ajax_nopriv_ns_get_nonce', $pluginPublic, 'handleGetNonce');
     }
 }
