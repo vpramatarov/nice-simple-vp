@@ -643,12 +643,17 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
         font-weight: 600;
         width: 38%;
     }
+
+    .slider .slide h2,
+    .hero-slider .slide-content h2 { font-size: 3rem; }
 }
 
 @media (max-width: 768px) {
     .hero-slider .hero-content h1 { font-size: 2.5em; }
     .hero-slider .slide { width: 85vw; margin: 0 1vw; }
     .accordion-wrapper > .row .accordion-item { margin-bottom: 15px; }
+    .slider .slide h2,
+    .hero-slider .slide-content h2 { font-size: 2rem; }
 }
 
 @media (max-width: 480px) {
@@ -661,7 +666,7 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
 
 
 @media (max-width: 360px) {
-    .hero-slider .slide-content p {
+    .hero-slider .slide-content p:not(:last-child) {
         display: none;
     }
 }
