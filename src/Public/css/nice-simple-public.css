@@ -406,9 +406,9 @@ input[name="slide"] {
 }
 
 .hero-slider a.button {
-    background-color: var(--ns-btn-bg);
-    color: var(--ns-btn-color);
-    border-color: var(--ns-btn-border);
+    background-color: var(--color-gold);
+    color: var(--color-text-light);
+    border-color: var(--color-gold);
     border-radius: 10px;
     text-shadow: none;
 }
