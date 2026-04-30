@@ -394,7 +394,7 @@ input[name="slide"] {
     transition: all 0.8s ease-in-out;
 }
 .hero-slider .slide-content h2 {
-    font-size: 3em;
+    font-size: 2.5em;
     font-weight: 700;
     margin-bottom: 15px;
     text-shadow: 2px 2px 15px rgba(0,0,0,0.7);
@@ -646,6 +646,8 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
 
     .slider .slide h2,
     .hero-slider .slide-content h2 { font-size: 3rem; }
+    .slider .slide,
+    .hero-slider .slide-content p { font-size: 1em; }
 }
 
 @media (max-width: 768px) {
@@ -654,6 +656,8 @@ input.accordion-input:checked + .accordion-item .accordion-content .accordion-in
     .accordion-wrapper > .row .accordion-item { margin-bottom: 15px; }
     .slider .slide h2,
     .hero-slider .slide-content h2 { font-size: 2rem; }
+    .slider .slide,
+    .hero-slider .slide-content p { font-size: 1.25rem; }
 }
 
 @media (max-width: 480px) {
